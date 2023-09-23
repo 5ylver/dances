@@ -34,10 +34,8 @@ import avelinos from "./dances/LosAvelinos_Junín.png";
 import candelaria from "./dances/Negrito-Candelaria.png";
 import saqra from "./dances/Saqra.png";
 import seis from "./dances/6.png";
-import lima from "./Lima3.svg";
 
 export {
-  lima,
   seis,
   saqra,
   candelaria,
