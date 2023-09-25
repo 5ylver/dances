@@ -37,7 +37,7 @@ import {
   wititi,
 } from "../assets";
 
-function Dances() {
+function Dances({ SetpopupPosRegion }) {
   const handleDanceImg = (target) => {
     const container = document.getElementById("imgContainer");
     const imgs = container.querySelectorAll("img");
@@ -67,14 +67,23 @@ function Dances() {
   };
 
   const paintRegion = (regions) => {
+    const posReg = [];
     for (let i = 0; i < regions.length; i++) {
       const region = document.getElementsByName(regions[i])[0];
+
+      const pos = region.getBoundingClientRect();
+      posReg.push({
+        name: regions[i].toString(),
+        x: pos.left + pos.width / 4,
+        y: pos.top + pos.height / 4,
+      });
 
       region.setAttribute(
         "style",
         "fill:rgb(96, 165, 250); transition: all .3s ease-in-out"
       );
     }
+    SetpopupPosRegion(posReg);
   };
 
   const notPaintRegion = (arr) => {
@@ -83,6 +92,7 @@ function Dances() {
         .getElementsByName(arr[i])[0]
         .setAttribute("style", "transition: all .3s ease-in-out");
     }
+    SetpopupPosRegion([]);
   };
 
   return (
